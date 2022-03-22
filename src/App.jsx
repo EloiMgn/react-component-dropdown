@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <div>
-    <Dropdown label="States" options={states} />
+        <Dropdown label="States" options={states} />
     </div>
   );
 }
