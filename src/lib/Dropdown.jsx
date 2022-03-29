@@ -1,20 +1,25 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import PropTypes from 'prop-types';
 import "./Dropdown.css";
 
 /**
  * 
- * @param {*} param0 
+ * @param {label} string 
+ * @param {options} array 
  * @returns {JSX.Element}
  */
-const Dropdown = ({ label, options, HoverStyle, DropdownStyle}) => {
+const Dropdown = ({ label, options, HoverStyle, DropdownStyle, hoverTransition, hoverTextColor, hoverTextWeight, hoverBackground}) => {
   const [selected, setSelected] = useState(null)
   const[hover, setHover] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
+  const select = useRef(null)
 
-  const toogleSelect = (selected) => {
-    setSelected(selected)
+
+  const toogleSelect = (option) => {
+    setSelected(option)
     toogleOpen()
+    select.current.value=option
+    eventEmitter(option)
   }
 
   const toogleHover = (hoveredElt) => {
@@ -25,8 +30,30 @@ const Dropdown = ({ label, options, HoverStyle, DropdownStyle}) => {
     setIsOpen(!isOpen)
   }
 
-  const hoverStyle =  HoverStyle
 
+  const eventEmitter = (selectedElement) => {
+    const event = new CustomEvent('onSelectDropdownOption', {
+      detail: {
+        name: label, 
+        value: selectedElement
+      }
+    })
+    document.dispatchEvent(event)
+  }
+
+  const hoverStyle =  () => {
+    if(HoverStyle){
+      return HoverStyle
+    } else {
+      return {
+        "background": `${hoverBackground}`,
+        // "box-shadow": "1px 1px 3px #9b9b9b",
+        "color": `${hoverTextColor}`,
+        "transition": `all ${hoverTransition}ms`,
+        "font-weight": `${hoverTextWeight}`
+      }
+    }
+  }
 
   const dropDownStyle = DropdownStyle
 
@@ -34,14 +61,9 @@ const Dropdown = ({ label, options, HoverStyle, DropdownStyle}) => {
     <div>
       <label htmlFor={label}>{label}</label>
       {/* ==== Hidden select element for accessibility & semantic ==== */}
-      <select name={label} id={label} className='select'>
+      <select name={label} id={label} className='select' ref={select}>
       {options.map((option, idx) => {
-            return <option 
-              className={selected===option.name? 'dropdown__option selected': 'dropdown__option'} 
-              key={idx} value={option.name} 
-              onClick={e =>toogleSelect(option.name)} 
-              onMouseOver={e =>toogleHover(option.name)} 
-              style={hover === option.name ? hoverStyle : {}}>{option.name}</option>
+            return <option key={idx}>{option.name}</option>
           })}
       </select>
       {/* ============================================================= */}
@@ -70,7 +92,7 @@ const Dropdown = ({ label, options, HoverStyle, DropdownStyle}) => {
               value={option.name} 
               onClick={e =>toogleSelect(option.name)} 
               onMouseOver={e =>toogleHover(option.name)} 
-              style={hover === option.name ? hoverStyle : {}} >
+              style={hover === option.name ? hoverStyle() : {}} >
               <span>{option.name}</span>
             </li>
           })}
@@ -81,10 +103,11 @@ const Dropdown = ({ label, options, HoverStyle, DropdownStyle}) => {
 }
 
 Dropdown.defaultProps = {
-  HoverStyle: {
-    "background": "hsl(345deg 100% 47%)",
-    "color": 'white'
-  },
+
+  hoverBackground: "hsl(345deg 100% 47%)",
+  hoverTextColor: 'white',
+  hoverTransition: 150,
+  hoverTextWeight: 600,
   DropdownStyle: {
     "background": "white",
     "color": 'black', 

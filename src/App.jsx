@@ -1,22 +1,25 @@
+import { useEffect } from "react";
 import Dropdown from "./lib/Dropdown";
 
 
 
 const App = () => {
 
-// const hoverStyle = {
-//   "background" : "red",
-//   "color": "blue"
-// }
+    useEffect(() => {
+        document.addEventListener('onSelectDropdownOption', (e)=> {
+        })
+    }, [])
 
-// const dropdownStyle = {
-//   "background" : "red",
-//   "color": "blue"
-// }
+    const hoverStyle= {
+          "background": "hsl(345deg 100% 47%)",
+          "box-shadow": "1px 1px 3px #9b9b9b",
+          "color": 'white',
+          "transition": "all 300ms;"
+        }
 
   return (
     <div>
-        <Dropdown label="States" options={states} />
+        <Dropdown label="States" options={states} hoverTransition={100} hoverTextColor='blue' hoverTextWeight={800} hoverBackground='green'/>
     </div>
   );
 }
