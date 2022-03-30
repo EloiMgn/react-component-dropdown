@@ -7,19 +7,13 @@ const App = () => {
 
     useEffect(() => {
         document.addEventListener('onSelectDropdownOption', (e)=> {
+            // console.log(e.detail);
         })
     }, [])
 
-    const hoverStyle= {
-          "background": "hsl(345deg 100% 47%)",
-          "box-shadow": "1px 1px 3px #9b9b9b",
-          "color": 'white',
-          "transition": "all 300ms;"
-        }
-
   return (
     <div>
-        <Dropdown label="States" options={states} hoverTransition={100} hoverTextColor='blue' hoverTextWeight={800} hoverBackground='green'/>
+        <Dropdown label="States" options={states} hoverTextColor='blue' hoverBackground='green' placeHolder='selectState'/>
     </div>
   );
 }

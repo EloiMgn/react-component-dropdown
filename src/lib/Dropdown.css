@@ -1,3 +1,8 @@
+:root{
+  --hover-color : rgb(138, 41, 41);
+  --hover-background: rgb(70, 157, 168);
+}
+
 .dropdown{
   position: relative;
   height: 5vh;
@@ -9,11 +14,7 @@
   display: none;
 }
 
-.dropdown.open{
-  position: relative;
-  height: 35vh;
-  transition: .5s;
-}
+
 
 .dropdown.close{
   height: 5vh;
@@ -30,12 +31,19 @@
   font-size: 1rem;
   cursor: pointer;
   border-radius: 3px;
+  border: 1px solid black;
+  position: relative;
 }
 
 .select-label:hover{
-  background: #727272;
+  background: #8d8d8d28;
   box-shadow: 1px 1px 3px #9b9b9b;
 }
+
+.select-label.open{
+  background: #8d8d8d28;
+}
+
 .select-label .arrow{
   position: relative;
   width: 3rem;
@@ -45,39 +53,16 @@
 margin-left: 1rem;
 }
 
-.select-label .arrow:after {
-  position: absolute;
-  top: 11px;
-  left: 1rem;
-	content: '';
-	display: inline-block;
-	width: .8rem;
-	height: .8rem;
-	border-bottom: 2px solid currentColor;
-	border-left: 2px solid currentColor;
-	border-bottom-left-radius: 2px;
-	transform: rotate(45deg) translate(50%, 0%);
-	transform-origin: center center;
-	transition: transform ease-in-out 100ms;
-  transition: .3s;
+.select-label .arrow {
+  transition: 350ms all 0s ease-out;
 }
 
-.select-label.open .arrow:after {
-	transform: rotate(-45deg) translate(0%, 0%);
-  transition: .3s;
+.select-label.open .arrow {
+	transform: rotate(-90deg);
+  transition: 350ms all 0s ease-out;
 }
 
-.dropdown__deroulant{
-  background: white;
-  width: 100%;
-  z-index: 2;
-  position: absolute;
-  top: 5vh;
-  overflow-y: scroll;
-  padding: 0;
-  box-shadow: 1px 1px 3px #9b9b9b;
 
-}
 
 .dropdown__option{
   background: white;
@@ -94,17 +79,46 @@ margin-left: 1rem;
   margin-left: 1rem;
 }
 
+.dropdown__option:hover, .dropdown__option.selected{
+  color: var(--hover-color); 
+  background: var(--hover-background);
+}
+
+.dropdown__deroulant{
+  background: white;
+  width: 100%;
+  z-index: 2;
+  position: absolute;
+  top: 5vh;
+  overflow-y: scroll;
+  padding: 0;
+  width: calc(100% - 2px);
+}
+
 .dropdown__deroulant.open{
+  margin: 0;
   height: fit-content;
   max-height: 30vh;
-  opacity: 1;
-  transition: .3s;
   pointer-events: all;
+  border-radius: 0px 0px 3px 3px;
+  border: solid 1px black;
+  border-top: none;
+  transition: 400ms all 0ms ease-out;
 }
 
 .dropdown__deroulant.close{
-  height: 0;
-  opacity: 0;
-  transition: .3s;
+  position: absolute;
+  top: 2rem;
+	max-height:0em;	
   pointer-events: none;
+	transition: 350ms all 0s ease-out;
+  border: solid 0px white;
+}
+
+.dropdown.open{
+
+  height: 35vh;
+  transition: .5s;
+  box-shadow: 1px 1px 3px #9b9b9b;
+  transition: .5s all 0.3s;
 }
