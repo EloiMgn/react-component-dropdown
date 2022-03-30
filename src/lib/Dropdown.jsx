@@ -8,7 +8,7 @@ import "./Dropdown.css";
  * @param {options} array 
  * @returns {JSX.Element}
  */
-const Dropdown = ({ label, options, placeHolder, hoverTextColor, hoverBackground, startValue}) => {
+const Dropdown = ({ label, options, placeHolder, hoverTextColor, hoverBackground, startValue, fontFamily}) => {
   const [selected, setSelected] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
   const select = useRef(null)
@@ -25,9 +25,10 @@ const Dropdown = ({ label, options, placeHolder, hoverTextColor, hoverBackground
 
   useEffect(() => {
     const root = document.querySelector(":root")
-    root.style.setProperty('--hover-color', hoverTextColor)
-    root.style.setProperty('--hover-background', hoverBackground)
-  }, [hoverBackground, hoverTextColor])
+    hoverTextColor && root.style.setProperty('--hover-color', hoverTextColor)
+    hoverBackground && root.style.setProperty('--hover-background', hoverBackground)
+    fontFamily && root.style.setProperty('--font-family', fontFamily)
+  }, [hoverBackground, hoverTextColor, fontFamily])
 
   const toogleOpen = () => {
     setIsOpen(!isOpen)
@@ -58,19 +59,19 @@ const Dropdown = ({ label, options, placeHolder, hoverTextColor, hoverBackground
 
   return (
     <div>
-      {label && <label htmlFor={label}>{label}</label>}
+      {label && <label htmlFor={label} className="mainLabel__lib-EM">{label}</label>}
       {/* ==== Hidden select element for accessibility & semantic ==== */}
-      <select name={label} id={label} className='select' ref={select}>
+      <select name={label} id={label} className='select__lib-EM' ref={select}>
         {options.map((option, idx) => <option key={idx}>{option.name}</option>)}
       </select>
       {/* ============================================================= */}
-      <div className={isOpen ? "dropdown open" : "dropdown close"}>
+      <div className={isOpen ? "dropdown__lib-EM open" : "dropdown__lib-EM close"}>
       {selected ? 
         <div 
-          className={isOpen ? "select-label open" : "select-label close"} 
+          className={isOpen ? "select-label__lib-EM open" : "select-label__lib-EM close"} 
           onClick={toogleOpen} >
-          <span className="label">{selected}</span>
-          <div className="arrow">
+          <span className="placheHolder__lib-EM">{selected}</span>
+          <div className="arrow__lib-EM">
             <svg  width="48px" height="48px">
               <path d="M 30,35 L 20,25 L 30,15" style={{"fill":"none", "stroke":"black"}} stroke-width="3" stroke-linecap="round"/>
             </svg>
@@ -79,19 +80,19 @@ const Dropdown = ({ label, options, placeHolder, hoverTextColor, hoverBackground
         </div> 
         : 
         <div 
-          className={isOpen ? "select-label open" : "select-label close"} 
+          className={isOpen ? "select-label__lib-EM open" : "select-label__lib-EM close"} 
           onClick={toogleOpen}>
-          {placeHolder ? <span className="label">{placeHolder}</span> : <span className="label"></span>}
-          <div className="arrow">
+          {placeHolder ? <span className="placheHolder__lib-EM">{placeHolder}</span> : <span className="placheHolder__lib-EM"></span>}
+          <div className="arrow__lib-EM">
             <svg width="48px" height="48px">
               <path d="M 30,35 L 20,25 L 30,15" style={{"fill":"none", "stroke":"black"}} stroke-width="3" stroke-linecap="round"/>
             </svg>
           </div>
         </div>}
-        <ul className={isOpen ? "dropdown__deroulant open" : "dropdown__deroulant close"}>
+        <ul className={isOpen ? "dropdown__deroulant__lib-EM open" : "dropdown__deroulant__lib-EM close"}>
           {options.map((option, idx) => {
             return <li 
-              className={selected === option.name ? 'dropdown__option selected': 'dropdown__option'} 
+              className={selected === option.name ? 'dropdown__option__lib-EM selected': 'dropdown__option__lib-EM'} 
               key={idx} 
               value={option.name} 
               onClick={() => toogleSelectOption(option.name)} 

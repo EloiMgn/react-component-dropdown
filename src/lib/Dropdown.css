@@ -1,33 +1,34 @@
 :root{
   --hover-color : rgb(138, 41, 41);
   --hover-background: rgb(70, 157, 168);
+  --font-family: Arial, Helvetica, sans-serif;
 }
 
-.dropdown{
+.dropdown__lib-EM{
   position: relative;
   height: 5vh;
   margin: 1rem 1rem 1rem 0;
   border-radius: 3px;
 }
 
-.select{
+.select__lib-EM{
   display: none;
 }
 
 
 
-.dropdown.close{
+.dropdown__lib-EM.close{
   height: 5vh;
   transition: .5s;
 
 }
 
-.select-label{
+.select-label__lib-EM{
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: black;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family);
   font-size: 1rem;
   cursor: pointer;
   border-radius: 3px;
@@ -35,56 +36,60 @@
   position: relative;
 }
 
-.select-label:hover{
+.select-label__lib-EM:hover{
   background: #8d8d8d28;
   box-shadow: 1px 1px 3px #9b9b9b;
 }
 
-.select-label.open{
+.select-label__lib-EM.open{
   background: #8d8d8d28;
 }
 
-.select-label .arrow{
+.select-label__lib-EM .arrow__lib-EM{
   position: relative;
   width: 3rem;
   height: 3rem;
 }
-.select-label .label{
+.select-label__lib-EM .placheHolder__lib-EM{
 margin-left: 1rem;
 }
 
-.select-label .arrow {
+.mainLabel__lib-EM{
+  font-family: var(--font-family);
+}
+
+.select-label__lib-EM .arrow__lib-EM {
   transition: 350ms all 0s ease-out;
 }
 
-.select-label.open .arrow {
+.select-label__lib-EM.open .arrow__lib-EM {
 	transform: rotate(-90deg);
   transition: 350ms all 0s ease-out;
 }
 
 
 
-.dropdown__option{
+.dropdown__option__lib-EM{
   background: white;
   list-style: none;
   height: 4vh;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family);
   display: flex;
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
 }
 
-.dropdown__option span{
+.dropdown__option__lib-EM span{
   margin-left: 1rem;
 }
 
-.dropdown__option:hover, .dropdown__option.selected{
+.dropdown__option__lib-EM:hover, .dropdown__option__lib-EM.selected{
   color: var(--hover-color); 
   background: var(--hover-background);
 }
 
-.dropdown__deroulant{
+.dropdown__deroulant__lib-EM{
   background: white;
   width: 100%;
   z-index: 2;
@@ -95,7 +100,7 @@ margin-left: 1rem;
   width: calc(100% - 2px);
 }
 
-.dropdown__deroulant.open{
+.dropdown__deroulant__lib-EM.open{
   margin: 0;
   height: fit-content;
   max-height: 30vh;
@@ -106,7 +111,7 @@ margin-left: 1rem;
   transition: 400ms all 0ms ease-out;
 }
 
-.dropdown__deroulant.close{
+.dropdown__deroulant__lib-EM.close{
   position: absolute;
   top: 2rem;
 	max-height:0em;	
@@ -115,7 +120,7 @@ margin-left: 1rem;
   border: solid 0px white;
 }
 
-.dropdown.open{
+.dropdown.open__lib-EM{
 
   height: 35vh;
   transition: .5s;
