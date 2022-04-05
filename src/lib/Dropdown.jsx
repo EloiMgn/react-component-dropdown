@@ -8,7 +8,7 @@ import "./Dropdown.css";
  * @param {options} array 
  * @returns {JSX.Element}
  */
-const Dropdown = ({ label, options, placeHolder, hoverTextColor, hoverBackground, startValue, fontFamily}) => {
+const SelectDropdown = ({ label, options, placeholder, hoverTextColor, hoverBackground, startValue, fontFamily}) => {
   const [selected, setSelected] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
   const select = useRef(null)
@@ -17,10 +17,13 @@ const Dropdown = ({ label, options, placeHolder, hoverTextColor, hoverBackground
   const toogleSelectOption = (option) => {
     setSelected(option)
     toogleOpen()
-    select.current.value=option
-    eventEmitter(option)
+    select.current.value = option
+    !startValue && eventEmitter(option);
   }
 
+  useEffect(() => {
+    startValue && eventEmitter(select.current.value);
+  }, [selected])
 
 
   useEffect(() => {
@@ -45,23 +48,21 @@ const Dropdown = ({ label, options, placeHolder, hoverTextColor, hoverBackground
     document.dispatchEvent(event)
   }
 
+
   useEffect(() => {
-    if(startValue){
-      options.forEach(option => {
-        if (option.name === startValue) {
-          setSelected(option.name)
-          select.current.value = option.name
-          eventEmitter(option.name)
-        }
-      })
-    }
-  }, [])
+  startValue && options.forEach(option => {
+          if (option.name === startValue) {
+            setSelected(option.name)
+            select.current.value = option.name
+          }
+        })
+  }, [startValue])
 
   return (
-    <div>
+    <>
       {label && <label htmlFor={label} className="mainLabel__lib-EM">{label}</label>}
       {/* ==== Hidden select element for accessibility & semantic ==== */}
-      <select name={label} id={label} className='select__lib-EM' ref={select}>
+      <select name={label} id={`${label}-select`} className='select__lib-EM' ref={select}>
         {options.map((option, idx) => <option key={idx}>{option.name}</option>)}
       </select>
       {/* ============================================================= */}
@@ -70,22 +71,21 @@ const Dropdown = ({ label, options, placeHolder, hoverTextColor, hoverBackground
         <div 
           className={isOpen ? "select-label__lib-EM open" : "select-label__lib-EM close"} 
           onClick={toogleOpen} >
-          <span className="placheHolder__lib-EM">{selected}</span>
+          <span className="placheholder__lib-EM">{selected}</span>
           <div className="arrow__lib-EM">
             <svg  width="48px" height="48px">
-              <path d="M 30,35 L 20,25 L 30,15" style={{"fill":"none", "stroke":"black"}} stroke-width="3" stroke-linecap="round"/>
+              <path d="M 30,35 L 20,25 L 30,15" style={{"fill":"none", "stroke":"black"}} strokeWidth="3" strokeLinecap="round"/>
             </svg>
           </div>
-          {/* <span ></span> */}
         </div> 
         : 
         <div 
           className={isOpen ? "select-label__lib-EM open" : "select-label__lib-EM close"} 
           onClick={toogleOpen}>
-          {placeHolder ? <span className="placheHolder__lib-EM">{placeHolder}</span> : <span className="placheHolder__lib-EM"></span>}
+          {placeholder ? <span className="placheholder__lib-EM">{placeholder}</span> : <span className="placheholder__lib-EM"></span>}
           <div className="arrow__lib-EM">
             <svg width="48px" height="48px">
-              <path d="M 30,35 L 20,25 L 30,15" style={{"fill":"none", "stroke":"black"}} stroke-width="3" stroke-linecap="round"/>
+              <path d="M 30,35 L 20,25 L 30,15" style={{"fill":"none", "stroke":"black"}} strokeWidth="3" strokeLinecap="round"/>
             </svg>
           </div>
         </div>}
@@ -102,17 +102,21 @@ const Dropdown = ({ label, options, placeHolder, hoverTextColor, hoverBackground
           })}
         </ul>
       </div>
-    </div>
+    </>
   );
 }
 
-Dropdown.defaultProps = {
+SelectDropdown.defaultProps = {
   placeHolder: ""
 }
 
-Dropdown.propTypes = {
-  label: PropTypes.string.isRequired,
-  options: PropTypes.array.isRequired,
-
+SelectDropdown.propTypes = {
+  label: PropTypes.string,
+  options: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  placeholder: PropTypes.string,
+  hoverTextColor: PropTypes.string,
+  hoverBackground: PropTypes.string,
+  startValue: PropTypes.string,
+  fontFamily: PropTypes.string
 }
-export default Dropdown;
+export default SelectDropdown;

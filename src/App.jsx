@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Dropdown from "./lib/Dropdown";
+import SelectDropdown from "./lib/Dropdown";
 
 
 
@@ -7,13 +7,13 @@ const App = () => {
 
     useEffect(() => {
         document.addEventListener('onSelectDropdownOption', (e)=> {
-            // console.log(e.detail);
+            console.log(e.detail);
         })
-    }, [])
+    })
 
   return (
     <div>
-        <Dropdown label="States" options={states} hoverTextColor='blue' hoverBackground='green' placeHolder='selectState'/>
+        <SelectDropdown label="Label" options={states}  placeholder='--- select value ---' />
     </div>
   );
 }
@@ -23,239 +23,75 @@ export default App;
 
 const states = [
   {
-      "name": "Alabama",
+      "name": "option",
       "abbreviation": "AL"
   },
   {
-      "name": "Alaska",
+      "name": "option",
       "abbreviation": "AK"
   },
   {
-      "name": "American Samoa",
+      "name": "option",
       "abbreviation": "AS"
   },
   {
-      "name": "Arizona",
+      "name": "option",
       "abbreviation": "AZ"
   },
   {
-      "name": "Arkansas",
+      "name": "option",
       "abbreviation": "AR"
   },
   {
-      "name": "California",
+      "name": "option",
       "abbreviation": "CA"
   },
   {
-      "name": "Colorado",
+      "name": "option",
       "abbreviation": "CO"
   },
   {
-      "name": "Connecticut",
+      "name": "option",
       "abbreviation": "CT"
   },
   {
-      "name": "Delaware",
+      "name": "option",
       "abbreviation": "DE"
   },
   {
-      "name": "District Of Columbia",
+      "name": "option",
       "abbreviation": "DC"
   },
   {
-      "name": "Federated States Of Micronesia",
+      "name": "option",
       "abbreviation": "FM"
   },
   {
-      "name": "Florida",
+      "name": "option",
       "abbreviation": "FL"
   },
   {
-      "name": "Georgia",
+      "name": "option",
       "abbreviation": "GA"
   },
   {
-      "name": "Guam",
+      "name": "option",
       "abbreviation": "GU"
   },
   {
-      "name": "Hawaii",
+      "name": "option",
       "abbreviation": "HI"
   },
   {
-      "name": "Idaho",
+      "name": "option",
       "abbreviation": "ID"
   },
   {
-      "name": "Illinois",
+      "name": "option",
       "abbreviation": "IL"
   },
   {
-      "name": "Indiana",
-      "abbreviation": "IN"
-  },
-  {
-      "name": "Iowa",
-      "abbreviation": "IA"
-  },
-  {
-      "name": "Kansas",
-      "abbreviation": "KS"
-  },
-  {
-      "name": "Kentucky",
-      "abbreviation": "KY"
-  },
-  {
-      "name": "Louisiana",
-      "abbreviation": "LA"
-  },
-  {
-      "name": "Maine",
-      "abbreviation": "ME"
-  },
-  {
-      "name": "Marshall Islands",
-      "abbreviation": "MH"
-  },
-  {
-      "name": "Maryland",
-      "abbreviation": "MD"
-  },
-  {
-      "name": "Massachusetts",
-      "abbreviation": "MA"
-  },
-  {
-      "name": "Michigan",
-      "abbreviation": "MI"
-  },
-  {
-      "name": "Minnesota",
-      "abbreviation": "MN"
-  },
-  {
-      "name": "Mississippi",
-      "abbreviation": "MS"
-  },
-  {
-      "name": "Missouri",
-      "abbreviation": "MO"
-  },
-  {
-      "name": "Montana",
-      "abbreviation": "MT"
-  },
-  {
-      "name": "Nebraska",
-      "abbreviation": "NE"
-  },
-  {
-      "name": "Nevada",
-      "abbreviation": "NV"
-  },
-  {
-      "name": "New Hampshire",
-      "abbreviation": "NH"
-  },
-  {
-      "name": "New Jersey",
-      "abbreviation": "NJ"
-  },
-  {
-      "name": "New Mexico",
-      "abbreviation": "NM"
-  },
-  {
-      "name": "New York",
-      "abbreviation": "NY"
-  },
-  {
-      "name": "North Carolina",
-      "abbreviation": "NC"
-  },
-  {
-      "name": "North Dakota",
-      "abbreviation": "ND"
-  },
-  {
-      "name": "Northern Mariana Islands",
-      "abbreviation": "MP"
-  },
-  {
-      "name": "Ohio",
-      "abbreviation": "OH"
-  },
-  {
-      "name": "Oklahoma",
-      "abbreviation": "OK"
-  },
-  {
-      "name": "Oregon",
-      "abbreviation": "OR"
-  },
-  {
-      "name": "Palau",
-      "abbreviation": "PW"
-  },
-  {
-      "name": "Pennsylvania",
-      "abbreviation": "PA"
-  },
-  {
-      "name": "Puerto Rico",
-      "abbreviation": "PR"
-  },
-  {
-      "name": "Rhode Island",
-      "abbreviation": "RI"
-  },
-  {
-      "name": "South Carolina",
-      "abbreviation": "SC"
-  },
-  {
-      "name": "South Dakota",
-      "abbreviation": "SD"
-  },
-  {
-      "name": "Tennessee",
-      "abbreviation": "TN"
-  },
-  {
-      "name": "Texas",
-      "abbreviation": "TX"
-  },
-  {
-      "name": "Utah",
-      "abbreviation": "UT"
-  },
-  {
-      "name": "Vermont",
-      "abbreviation": "VT"
-  },
-  {
-      "name": "Virgin Islands",
-      "abbreviation": "VI"
-  },
-  {
-      "name": "Virginia",
-      "abbreviation": "VA"
-  },
-  {
-      "name": "Washington",
-      "abbreviation": "WA"
-  },
-  {
-      "name": "West Virginia",
-      "abbreviation": "WV"
-  },
-  {
-      "name": "Wisconsin",
-      "abbreviation": "WI"
-  },
-  {
-      "name": "Wyoming",
+      "name": "option",
       "abbreviation": "WY"
   }
 ];

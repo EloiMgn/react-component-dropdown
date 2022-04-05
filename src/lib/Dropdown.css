@@ -1,6 +1,6 @@
 :root{
-  --hover-color : rgb(138, 41, 41);
-  --hover-background: rgb(70, 157, 168);
+  --hover-color : #121212;
+  --hover-background: #8d8d8d28;
   --font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -50,7 +50,7 @@
   width: 3rem;
   height: 3rem;
 }
-.select-label__lib-EM .placheHolder__lib-EM{
+.select-label__lib-EM .placheholder__lib-EM{
 margin-left: 1rem;
 }
 
