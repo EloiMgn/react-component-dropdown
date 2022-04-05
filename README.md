@@ -1,7 +1,5 @@
 # [react-customSelectDropdown](https://github.com/EloiMgn/react-component-dropdown)
 
-[![License][license-image]][license-url]
-
 Customisable dropdown select react component
 
 ![Dropdown select element open](./src/SelectDropdown-open.PNG)
