@@ -8,7 +8,7 @@ import "./Dropdown.css";
  * @param {options} array 
  * @returns {JSX.Element}
  */
-const SelectDropdown = ({ label, options, placeholder, hoverTextColor, hoverBackground, startValue, fontFamily}) => {
+const SelectDropdown = ({ label, options, placeholder, startValue, fontFamily, hoverTextColor, hoverBackground}) => {
   const [selected, setSelected] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
   const select = useRef(null)
@@ -112,7 +112,7 @@ SelectDropdown.defaultProps = {
 
 SelectDropdown.propTypes = {
   label: PropTypes.string,
-  options: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  options: PropTypes.array.isRequired,
   placeholder: PropTypes.string,
   hoverTextColor: PropTypes.string,
   hoverBackground: PropTypes.string,

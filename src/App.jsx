@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <div>
-        <SelectDropdown label="Label" options={states}  placeholder='--- select value ---' />
+        <SelectDropdown label="Label" options={states}  startValue='option1' placeholder='placeholder'/>
     </div>
   );
 }
@@ -23,7 +23,7 @@ export default App;
 
 const states = [
   {
-      "name": "option",
+      "name": "option1",
       "abbreviation": "AL"
   },
   {
