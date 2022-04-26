@@ -4,8 +4,13 @@ import "./Dropdown.css";
 
 /**
  * 
- * @param {label} string 
- * @param {options} array 
+ * @param {string} label
+ * @param {number} options Array of options you want to add to the dropdown
+ * @param {string} placeholder Placeholder if needed
+ * @param {string} startValue 
+ * @param {string} fontFamily native font-family as serif, Arial...
+ * @param {string} hoverTextColor
+ * @param {string} hoverBackground 
  * @returns {JSX.Element}
  */
 const SelectDropdown = ({ label, options, placeholder, startValue, fontFamily, hoverTextColor, hoverBackground}) => {
@@ -82,7 +87,7 @@ const SelectDropdown = ({ label, options, placeholder, startValue, fontFamily, h
         <div 
           className={isOpen ? "select-label__lib-EM open" : "select-label__lib-EM close"} 
           onClick={toogleOpen}>
-          {placeholder ? <span className="placheholder__lib-EM">{placeholder}</span> : <span className="placheholder__lib-EM"></span>}
+            <span className="placheholder__lib-EM">{placeholder ?? ''}</span>
           <div className="arrow__lib-EM">
             <svg width="48px" height="48px">
               <path d="M 30,35 L 20,25 L 30,15" style={{"fill":"none", "stroke":"black"}} strokeWidth="3" strokeLinecap="round"/>
@@ -106,17 +111,17 @@ const SelectDropdown = ({ label, options, placeholder, startValue, fontFamily, h
   );
 }
 
-SelectDropdown.defaultProps = {
-  placeHolder: ""
-}
+// SelectDropdown.defaultProps = {
+//   placeHolder: ""
+// }
 
-SelectDropdown.propTypes = {
-  label: PropTypes.string,
-  options: PropTypes.array.isRequired,
-  placeholder: PropTypes.string,
-  hoverTextColor: PropTypes.string,
-  hoverBackground: PropTypes.string,
-  startValue: PropTypes.string,
-  fontFamily: PropTypes.string
-}
+// SelectDropdown.propTypes = {
+//   label: PropTypes.string,
+//   options: PropTypes.array.isRequired,
+//   placeholder: PropTypes.string,
+//   hoverTextColor: PropTypes.string,
+//   hoverBackground: PropTypes.string,
+//   startValue: PropTypes.string,
+//   fontFamily: PropTypes.string
+// }
 export default SelectDropdown;

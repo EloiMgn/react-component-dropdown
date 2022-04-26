@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import SelectDropdown from "./lib/Dropdown";
+import SelectDropdown from "../lib";
 
 
 
@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <div>
-        <SelectDropdown label="Label" options={states}  startValue='option1' placeholder='placeholder'/>
+        <SelectDropdown label="Label" options={states}  />
     </div>
   );
 }

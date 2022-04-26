@@ -1,10 +1,10 @@
 # [react-customSelectDropdown](https://github.com/EloiMgn/react-component-dropdown)
 
-Customisable dropdown select react component
+Customisable select dropdown for React 
 
-![Dropdown select element open](./src/SelectDropdown-open.PNG)
+![Dropdown select element open](./img/SelectDropdown-open.PNG)
 
-![Dropdown select element close](./src/SelectDropdown-close.PNG)
+![Dropdown select element close](./img/SelectDropdown-close.PNG)
 
 - [Features](#features)
 - [Installing](#installing)
@@ -21,6 +21,8 @@ Customisable dropdown select react component
 
 ## Features
 
+- Accessibility friendly
+- Native select
 - configurable via `prop`s
 
 ## Installing
@@ -97,15 +99,13 @@ and use as:
 <SelectDropdown options={options} />
 ```
 
-> **options** are the minimum required props
-
 ### How to get the returned value ?
 
 *You can get the returned value by listenting the event **onSelectDropdownOption***
 
 ## Props
 
-The component supports the following props. All props except the *options* prop are optional.
+The component supports the following props. All props  are optionals except the *options* prop.
 
 ### options (required)
 _options={array}_

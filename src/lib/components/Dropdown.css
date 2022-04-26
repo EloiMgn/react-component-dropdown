@@ -1,0 +1,129 @@
+:root{
+  --hover-color : #121212;
+  --hover-background: #8d8d8d28;
+  --font-family: Arial, Helvetica, sans-serif;
+}
+
+.dropdown__lib-EM{
+  position: relative;
+  height: 5vh;
+  margin: 1rem 1rem 1rem 0;
+  border-radius: 3px;
+}
+
+.select__lib-EM{
+  display: none;
+}
+
+
+
+.dropdown__lib-EM.close{
+  height: 5vh;
+  transition: .5s;
+
+}
+
+.select-label__lib-EM{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid black;
+  position: relative;
+}
+
+.select-label__lib-EM:hover{
+  background: #8d8d8d28;
+  box-shadow: 1px 1px 3px #9b9b9b;
+}
+
+.select-label__lib-EM.open{
+  background: #8d8d8d28;
+}
+
+.select-label__lib-EM .arrow__lib-EM{
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+}
+.select-label__lib-EM .placheholder__lib-EM{
+margin-left: 1rem;
+}
+
+.mainLabel__lib-EM{
+  font-family: var(--font-family);
+}
+
+.select-label__lib-EM .arrow__lib-EM {
+  transition: 350ms all 0s ease-out;
+}
+
+.select-label__lib-EM.open .arrow__lib-EM {
+	transform: rotate(-90deg);
+  transition: 350ms all 0s ease-out;
+}
+
+
+
+.dropdown__option__lib-EM{
+  background: white;
+  list-style: none;
+  height: 4vh;
+  font-family: var(--font-family);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown__option__lib-EM span{
+  margin-left: 1rem;
+}
+
+.dropdown__option__lib-EM:hover, .dropdown__option__lib-EM.selected{
+  color: var(--hover-color); 
+  background: var(--hover-background);
+}
+
+.dropdown__deroulant__lib-EM{
+  background: white;
+  width: 100%;
+  z-index: 2;
+  position: absolute;
+  top: 5vh;
+  overflow-y: scroll;
+  padding: 0;
+  width: calc(100% - 2px);
+}
+
+.dropdown__deroulant__lib-EM.open{
+  margin: 0;
+  height: fit-content;
+  max-height: 30vh;
+  pointer-events: all;
+  border-radius: 0px 0px 3px 3px;
+  border: solid 1px black;
+  border-top: none;
+  transition: 400ms all 0ms ease-out;
+}
+
+.dropdown__deroulant__lib-EM.close{
+  position: absolute;
+  top: 2rem;
+	max-height:0em;	
+  pointer-events: none;
+	transition: 350ms all 0s ease-out;
+  border: solid 0px white;
+}
+
+.dropdown.open__lib-EM{
+
+  height: 35vh;
+  transition: .5s;
+  box-shadow: 1px 1px 3px #9b9b9b;
+  transition: .5s all 0.3s;
+}
