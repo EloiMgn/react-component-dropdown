@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-import PropTypes from 'prop-types';
 import "./Dropdown.css";
 
 /**
@@ -13,7 +12,7 @@ import "./Dropdown.css";
  * @param {string} hoverBackground 
  * @returns {JSX.Element}
  */
-const SelectDropdown = ({ label, options, placeholder, startValue, fontFamily, hoverTextColor, hoverBackground}) => {
+const Dropdown = ({ label, options, placeholder, startValue, fontFamily, hoverTextColor, hoverBackground}) => {
   const [selected, setSelected] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
   const select = useRef(null)
@@ -64,7 +63,7 @@ const SelectDropdown = ({ label, options, placeholder, startValue, fontFamily, h
   }, [startValue])
 
   return (
-    <>
+    <div>
       {label && <label htmlFor={label} className="mainLabel__lib-EM">{label}</label>}
       {/* ==== Hidden select element for accessibility & semantic ==== */}
       <select name={label} id={`${label}-select`} className='select__lib-EM' ref={select}>
@@ -87,7 +86,7 @@ const SelectDropdown = ({ label, options, placeholder, startValue, fontFamily, h
         <div 
           className={isOpen ? "select-label__lib-EM open" : "select-label__lib-EM close"} 
           onClick={toogleOpen}>
-            <span className="placheholder__lib-EM">{placeholder ?? ''}</span>
+            <span className="placheholder__lib-EM">{placeholder && placeholder}</span>
           <div className="arrow__lib-EM">
             <svg width="48px" height="48px">
               <path d="M 30,35 L 20,25 L 30,15" style={{"fill":"none", "stroke":"black"}} strokeWidth="3" strokeLinecap="round"/>
@@ -107,7 +106,7 @@ const SelectDropdown = ({ label, options, placeholder, startValue, fontFamily, h
           })}
         </ul>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -124,4 +123,4 @@ const SelectDropdown = ({ label, options, placeholder, startValue, fontFamily, h
 //   startValue: PropTypes.string,
 //   fontFamily: PropTypes.string
 // }
-export default SelectDropdown;
+export default Dropdown;

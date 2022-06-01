@@ -1,4 +1,4 @@
-# [react-customSelectDropdown](https://github.com/EloiMgn/react-component-dropdown)
+# [react-custom-simpledropdown](https://github.com/EloiMgn/react-component-dropdown)
 
 Customisable select dropdown for React 
 
@@ -30,13 +30,13 @@ Customisable select dropdown for React
 The package can be installed via [npm](https://github.com/npm/cli):
 
 ```
-npm install react-customSelectDropdown --save
+npm install react-custom-simpledropdown --save
 ```
 
 Or via [yarn](https://github.com/yarnpkg/yarn):
 
 ```
-yarn add react-customSelectDropdown
+yarn add react-custom-simpledropdown
 ```
 
 
@@ -44,7 +44,7 @@ yarn add react-customSelectDropdown
 
 ```jsx
 import React  from 'react';
-import SelectDropdown from 'react-customSelectDropdown';
+import SelectDropdown from 'react-custom-simpledropdown';
 
 export default class MyComponent extends React.Component {
     render() {
@@ -90,7 +90,7 @@ Outputs:
 import:
 
 ```bash
-import Dropdown from "react-customSelectDropdown";
+import Dropdown from "react-custom-simpledropdown";
 ```
 
 and use as:
@@ -135,7 +135,7 @@ By default the component will not show a label but if you want you can set a lab
 Set the label as "label"
 ```jsx
 import React  from 'react';
-import SelectDropdown from 'react-customSelectDropdown';
+import SelectDropdown from 'react-custom-simpledropdown';
 
 export default class MyComponent extends React.Component {
     render() {
@@ -154,7 +154,7 @@ By default the component will not show any placeholder but if you want you can s
 Set the placeholder as "placeholder"
 ```jsx
 import React  from 'react';
-import SelectDropdown from 'react-customSelectDropdown';
+import SelectDropdown from 'react-custom-simpledropdown';
 
 export default class MyComponent extends React.Component {
     render() {
@@ -173,7 +173,7 @@ By default the component doesn't have startvalue and the user have to select one
 Set the startValue as "option 3"
 ```jsx
 import React  from 'react';
-import SelectDropdown from 'react-customSelectDropdown';
+import SelectDropdown from 'react-custom-simpledropdown';
 
 export default class MyComponent extends React.Component {
     render() {

@@ -1,5 +1,6 @@
+import React from 'react'
 import { useEffect } from "react";
-import SelectDropdown from "../lib";
+import SelectDropdown from "../lib/components/Dropdown";
 
 
 
