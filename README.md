@@ -44,7 +44,7 @@ yarn add react-custom-simpledropdown
 
 ```jsx
 import React  from 'react';
-import SelectDropdown from 'react-custom-simpledropdown';
+import { Dropdown } from 'react-custom-simpledropdown';
 
 export default class MyComponent extends React.Component {
     render() {
@@ -135,7 +135,7 @@ By default the component will not show a label but if you want you can set a lab
 Set the label as "label"
 ```jsx
 import React  from 'react';
-import SelectDropdown from 'react-custom-simpledropdown';
+import { Dropdown } from 'react-custom-simpledropdown';
 
 export default class MyComponent extends React.Component {
     render() {
@@ -154,7 +154,7 @@ By default the component will not show any placeholder but if you want you can s
 Set the placeholder as "placeholder"
 ```jsx
 import React  from 'react';
-import SelectDropdown from 'react-custom-simpledropdown';
+import { Dropdown } from 'react-custom-simpledropdown';
 
 export default class MyComponent extends React.Component {
     render() {
@@ -173,7 +173,7 @@ By default the component doesn't have startvalue and the user have to select one
 Set the startValue as "option 3"
 ```jsx
 import React  from 'react';
-import SelectDropdown from 'react-custom-simpledropdown';
+import { Dropdown } from 'react-custom-simpledropdown';
 
 export default class MyComponent extends React.Component {
     render() {
